@@ -23,59 +23,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="css/image-popup.css">
-    <!-- JS-->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script-->
-
-  <title>Dash</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <title>Dash</title>
   </head>
 
   <body>
   <div id="header">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href=""><strong>My Inventory</strong></a>
-        <ul class="nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" id="SuppliersTab" data-toggle="tab" href="#Suppliers" role="tab" aria-controls="Suppliers" aria-selected="false">Suppliers</a>
+    <div class="container-fluid">  
+    <a class="navbar-brand" href=""><strong>My Inventory</strong></a>
+        <ul class="nav nav-tabs me-auto mb-2 mb-lg-0">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#Suppliers" id="SuppliersTab">Suppliers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="CategoriesTab" data-toggle="tab" href="#Categories" role="tab" aria-controls="Categories" aria-selected="false">Categories</a>
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#Categories" id="CategoriesTab">Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="WarehousesTab" data-toggle="tab" href="#Warehouses" role="tab" aria-controls="Warehouses" aria-selected="false">Warehouses</a>
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#Warehouses" id="WarehousesTab">Warehouses</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Products
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" id="ListProductsTab" data-toggle="tab" href="#ListProducts" role="tab" aria-controls="ListProducts" aria-selected="false" href="#ListProducts">List Products</a>
-              <a class="dropdown-item" id="NewProductTab" data-toggle="modal" data-target="#InsertProduct" role="tab" aria-controls="NewProduct" aria-selected="false" href="#NewProduct">Add New Product</a>
-             </div>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#ListProducts" id="ListProductsTab">List Products</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#InsertProduct" id="NewProductTab">Add New Product</a></li>
+          </ul>
           </li>
         </ul>
-        
-           
-        
-        <form class="form-inline my-2 my-lg-0">
-          Logged in as <b class="my-2 mx-2"><?php echo $user['username']; ?> </b>
-          <button class="btn btn-danger my-2 mx-2" type="submit" formaction="/dash/logout.php">Logout</button>
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">Logged in as <b><?php echo $user['username']; ?> </b> </div>
+          <div class="col-12"><button class="btn btn-danger" type="submit" formaction="/dash/logout.php">Logout</button></div>
+          <div class="col-12"><input class="form-control" type="search" placeholder="Search" aria-label="Search"></div>
+          <div class="col-12"><button class="btn btn-outline-success" type="submit">Search</button></div>
         </form>
-     
+    </div>
     </nav>
 </div>
 <!-- Content -->
 <div class="tab-content" id="tabcontent">
-<div class="tab-pane fade" id="Suppliers" role="tabpanel" aria-labelledby="Suppliers">
+<div class="tab-pane container fade" id="Suppliers" role="tabpanel" tabindex="0">
 <h1 class="text-center">Suppliers</h1>
        
        <br>
@@ -105,7 +96,7 @@
       </table>  
   </div>
   
-  <div class="tab-pane fade" id="Categories" role="tabpanel" aria-labelledby="Categories">
+  <div class="tab-pane fade" id="Categories" role="tabpanel" aria-labelledby="Categories" tabindex="0">
   <h1 class="text-center">Categories</h1>
        
        <br>
@@ -133,7 +124,7 @@
       </table>  
   </div>
   
-  <div class="tab-pane fade" id="Warehouses" role="tabpanel" aria-labelledby="Warehouses">
+  <div class="tab-pane fade" id="Warehouses" role="tabpanel" aria-labelledby="Warehouses" tabindex="0">
   <h1 class="text-center">Warehouses</h1>
        
        <br>
@@ -163,7 +154,7 @@
       </table>  
   </div>
   
-  <div class="tab-pane fade show active" id="ListProducts" role="tabpanel" aria-labelledby="ListProducts">
+  <div class="tab-pane fade active" id="ListProducts" role="tabpanel" aria-labelledby="ListProducts">
     <h1 class="text-center">Products</h1>
        
     <br>
@@ -229,14 +220,12 @@
   </div>
   <!-- Modal Insert Product -->
  <div class="modal fade" id="InsertProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog">
     <div class="modal-content">
     <form action="insertproduct.php" method="POST" enctype="multipart/form-data">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Insert Product</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
           <div class="form-group">
@@ -281,7 +270,7 @@
           </div>   
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Insert Product</button>
       </div>
       </form>
